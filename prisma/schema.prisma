@@ -18,13 +18,19 @@ model User {
 }
 
 model Workspace {
-  id        String     @id @default(cuid())
-  name      String
-  userId    String
-  user      User       @relation(fields: [userId], references: [id])
-  campaigns Campaign[]
-  leads     Lead[]
-  createdAt DateTime   @default(now())
+  id                     String     @id @default(cuid())
+  name                   String
+  userId                 String
+  user                   User       @relation(fields: [userId], references: [id])
+  campaigns              Campaign[]
+  leads                  Lead[]
+  createdAt              DateTime   @default(now())
+  plan                   String     @default("free")
+  businessName           String?
+  niche                  String?
+  defaultAudience        String?
+  defaultTone            String?
+  defaultDifferentiators String?
 }
 
 model Campaign {

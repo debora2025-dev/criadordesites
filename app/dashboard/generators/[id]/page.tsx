@@ -2,12 +2,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { marketingTools, categoryIcons } from "@/types/marketing";
 import { GeneratorForm } from "@/components/GeneratorForm";
+import { getCurrentUser, getDefaultWorkspace } from "@/lib/auth";
 
-export default function GeneratorToolPage({ params }: { params: { id: string } }) {
+export default async function GeneratorToolPage({ params }: { params: { id: string } }) {
   const tool = marketingTools.find((t) => t.id === params.id);
   if (!tool) {
     notFound();
   }
+
+  const user = await getCurrentUser();
+  const workspace = await getDefaultWorkspace(user!.id);
+
+  const defaults = {
+    publicoAlvo: workspace.defaultAudience ?? "",
+    nicho: workspace.niche ?? "",
+    tomDeVoz: workspace.defaultTone ?? "",
+    diferenciais: workspace.defaultDifferentiators ?? "",
+  };
 
   return (
     <main>
@@ -22,7 +33,7 @@ export default function GeneratorToolPage({ params }: { params: { id: string } }
         <p>{tool.category}</p>
       </div>
       <div className="card">
-        <GeneratorForm tool={tool} />
+        <GeneratorForm tool={tool} defaults={defaults} />
       </div>
     </main>
   );

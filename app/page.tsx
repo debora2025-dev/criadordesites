@@ -2,6 +2,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { marketingTools, categoryIcons } from "@/types/marketing";
+import { PublicNav } from "@/components/PublicNav";
+import { PublicFooter } from "@/components/PublicFooter";
 
 const stats = [
   { value: "10", label: "geradores de IA" },
@@ -67,15 +69,7 @@ export default async function HomePage() {
 
   return (
     <main className="landing-page">
-      <nav className="landing-nav">
-        <span className="landing-nav-brand">Marketing Digital Pro</span>
-        <div className="landing-nav-actions">
-          <Link href="/login">Entrar</Link>
-          <Link href="/register" className="btn-primary">
-            Criar conta grátis
-          </Link>
-        </div>
-      </nav>
+      <PublicNav />
 
       <section className="landing-hero">
         <div className="landing-hero-overlay" />
@@ -186,13 +180,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <footer className="landing-footer">
-        <span>Marketing Digital Pro</span>
-        <div>
-          <Link href="/login">Entrar</Link>
-          <Link href="/register">Criar conta</Link>
-        </div>
-      </footer>
+      <PublicFooter />
     </main>
   );
 }

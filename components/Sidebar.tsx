@@ -9,6 +9,7 @@ const links = [
   { href: "/dashboard/campaigns", label: "Campanhas" },
   { href: "/dashboard/leads", label: "Leads" },
   { href: "/dashboard/calendar", label: "Calendário" },
+  { href: "/dashboard/settings", label: "Configurações" },
 ];
 
 export function Sidebar() {

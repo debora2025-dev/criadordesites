@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import type { BriefingInput, MarketingTool } from "@/types/marketing";
 import { OutputEditor } from "@/components/OutputEditor";
 
@@ -16,8 +17,14 @@ const emptyForm: BriefingInput = {
   detalhesExtras: "",
 };
 
-export function GeneratorForm({ tool }: { tool: MarketingTool }) {
-  const [form, setForm] = useState<BriefingInput>(emptyForm);
+export function GeneratorForm({
+  tool,
+  defaults,
+}: {
+  tool: MarketingTool;
+  defaults?: Partial<BriefingInput>;
+}) {
+  const [form, setForm] = useState<BriefingInput>({ ...emptyForm, ...defaults });
   const [result, setResult] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -55,8 +62,17 @@ export function GeneratorForm({ tool }: { tool: MarketingTool }) {
     }
   }
 
+  const hasDefaults = defaults && Object.values(defaults).some((value) => value);
+
   return (
     <div>
+      {hasDefaults && (
+        <p className="form-hint">
+          Alguns campos já vieram preenchidos com o perfil do seu negócio. Você pode ajustá-los
+          a qualquer momento em{" "}
+          <Link href="/dashboard/settings">Configurações</Link>.
+        </p>
+      )}
       <form onSubmit={handleSubmit}>
         <label>
           Produto ou serviço
