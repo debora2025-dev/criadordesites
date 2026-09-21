@@ -17,18 +17,31 @@ com IA e gerenciar campanhas e leads.
 - **Calendário** (`/dashboard/calendar`): histórico de calendários de
   conteúdo já gerados.
 
-## Como rodar
+## Como rodar (comando único)
+
+Requer [Docker](https://docs.docker.com/get-docker/) instalado (para o Postgres) e Node.js.
+
+```bash
+./start.sh
+```
+
+Esse script: cria o `.env` a partir de `.env.example` (gerando um `AUTH_SECRET`
+automaticamente), sobe um Postgres via Docker Compose, instala as
+dependências, aplica as migrações do Prisma e inicia o servidor. Depois é só
+abrir http://localhost:3000, criar uma conta e gerar conteúdo.
+
+> Antes de usar os geradores de IA, defina `OPENAI_API_KEY` no `.env` gerado.
+
+### Rodando manualmente (sem Docker)
 
 ```bash
 npm install
-cp .env.example .env.local
-# preencha DATABASE_URL (Postgres), OPENAI_API_KEY e AUTH_SECRET
+cp .env.example .env
+# preencha DATABASE_URL (de um Postgres já existente), OPENAI_API_KEY e AUTH_SECRET
 
-npx prisma migrate dev --name init
+npx prisma migrate deploy
 npm run dev
 ```
-
-Abra http://localhost:3000, crie uma conta e comece a gerar conteúdo.
 
 ## Estrutura
 
@@ -47,6 +60,8 @@ prisma/
   schema.prisma   # User, Workspace, Campaign, Lead, Generation
 types/
   marketing.ts    # catálogo de ferramentas e tipos do briefing
+docker-compose.yml  # Postgres local para desenvolvimento
+start.sh            # sobe tudo com um único comando
 ```
 
 ## Notas técnicas
