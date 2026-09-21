@@ -19,16 +19,29 @@ com IA e gerenciar campanhas e leads.
 
 ## Como rodar (comando único)
 
-Requer [Docker](https://docs.docker.com/get-docker/) instalado (para o Postgres) e Node.js.
+Requer [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/) e
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) instalados
+e abertos.
+
+**Linux/macOS (ou Git Bash no Windows):**
 
 ```bash
 ./start.sh
 ```
 
-Esse script: cria o `.env` a partir de `.env.example` (gerando um `AUTH_SECRET`
-automaticamente), sobe um Postgres via Docker Compose, instala as
-dependências, aplica as migrações do Prisma e inicia o servidor. Depois é só
-abrir http://localhost:3000, criar uma conta e gerar conteúdo.
+**Windows (PowerShell):**
+
+```powershell
+.\start.ps1
+```
+
+Se o PowerShell bloquear a execução do script, rode uma vez:
+`Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
+
+Qualquer um dos dois: cria o `.env` a partir de `.env.example` (gerando um
+`AUTH_SECRET` automaticamente), sobe um Postgres via Docker Compose, instala
+as dependências, aplica as migrações do Prisma e inicia o servidor. Depois é
+só abrir http://localhost:3000, criar uma conta e gerar conteúdo.
 
 > Antes de usar os geradores de IA, defina `OPENAI_API_KEY` no `.env` gerado.
 
@@ -61,7 +74,8 @@ prisma/
 types/
   marketing.ts    # catálogo de ferramentas e tipos do briefing
 docker-compose.yml  # Postgres local para desenvolvimento
-start.sh            # sobe tudo com um único comando
+start.sh            # sobe tudo com um único comando (Linux/macOS/Git Bash)
+start.ps1           # equivalente para Windows PowerShell
 ```
 
 ## Notas técnicas
