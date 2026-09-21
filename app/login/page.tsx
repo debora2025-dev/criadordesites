@@ -37,30 +37,44 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="auth-page">
-      <h1>Entrar</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          E-mail
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Senha
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit" disabled={loading}>
-          {loading ? "Entrando..." : "Entrar"}
-        </button>
-      </form>
-      {error && <p role="alert">{error}</p>}
-      <p>
-        Não tem conta? <Link href="/register">Criar conta</Link>
-      </p>
+    <main className="auth-shell">
+      <div className="auth-card">
+        <Link href="/" className="auth-brand">
+          Marketing Digital Pro
+        </Link>
+        <h1>Entrar na sua conta</h1>
+        <p className="auth-subtitle">Acesse seus geradores, campanhas e leads.</p>
+
+        <form onSubmit={handleSubmit}>
+          <label>
+            E-mail
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Senha
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button type="submit" disabled={loading} className="btn-block">
+            {loading ? "Entrando..." : "Entrar"}
+          </button>
+        </form>
+
+        {error && <p role="alert">{error}</p>}
+
+        <p className="auth-footer-text">
+          Não tem conta? <Link href="/register">Criar conta grátis</Link>
+        </p>
+      </div>
     </main>
   );
 }

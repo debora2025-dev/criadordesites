@@ -17,6 +17,16 @@ export const marketingTools: MarketingTool[] = [
   { id: "whatsapp", name: "WhatsApp Vendas", category: "Vendas" },
 ];
 
+export const categoryIcons: Record<string, string> = {
+  "Social Media": "📱",
+  "Tráfego Pago": "📢",
+  SEO: "🔍",
+  "E-mail": "✉️",
+  Estratégia: "🎯",
+  Conversão: "🚀",
+  Vendas: "💬",
+};
+
 export interface BriefingInput {
   produto: string;
   publicoAlvo: string;

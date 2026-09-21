@@ -53,8 +53,12 @@ export default function CampaignsPage() {
 
   return (
     <main>
-      <h1>Campanhas</h1>
+      <div className="page-header">
+        <h1>Campanhas</h1>
+        <p>Registre e acompanhe suas campanhas de tráfego pago e conteúdo.</p>
+      </div>
 
+      <div className="card">
       <form onSubmit={handleSubmit}>
         <label>
           Nome
@@ -99,18 +103,21 @@ export default function CampaignsPage() {
         </label>
         <button type="submit">Criar campanha</button>
       </form>
-
       {error && <p role="alert">{error}</p>}
+      </div>
 
-      {loading ? (
-        <p>Carregando...</p>
-      ) : campaigns.length === 0 ? (
-        <p>Nenhuma campanha cadastrada ainda.</p>
-      ) : (
-        campaigns.map((campaign) => (
-          <CampaignCard key={campaign.id} campaign={campaign} onDelete={handleDelete} />
-        ))
-      )}
+      <div className="list-section">
+        <h2>Suas campanhas</h2>
+        {loading ? (
+          <p className="empty-state">Carregando...</p>
+        ) : campaigns.length === 0 ? (
+          <p className="empty-state">Nenhuma campanha cadastrada ainda.</p>
+        ) : (
+          campaigns.map((campaign) => (
+            <CampaignCard key={campaign.id} campaign={campaign} onDelete={handleDelete} />
+          ))
+        )}
+      </div>
     </main>
   );
 }

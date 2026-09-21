@@ -23,7 +23,7 @@ export function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-brand">Marketing AI</div>
+      <div className="sidebar-brand">Marketing Digital Pro</div>
       <nav>
         {links.map((link) => {
           const active =

@@ -12,21 +12,27 @@ export default async function CalendarPage() {
 
   return (
     <main>
-      <h1>Calendário de Conteúdo</h1>
-      <p>
-        <Link href="/dashboard/generators/content-calendar">Gerar novo calendário</Link>
-      </p>
+      <div className="page-header">
+        <h1>Calendário de Conteúdo</h1>
+        <p>Histórico dos calendários já gerados.</p>
+      </div>
 
-      {generations.length === 0 ? (
-        <p>Nenhum calendário gerado ainda.</p>
-      ) : (
-        generations.map((generation) => (
-          <article key={generation.id}>
-            <h2>{new Date(generation.createdAt).toLocaleDateString("pt-BR")}</h2>
-            <pre>{generation.output}</pre>
-          </article>
-        ))
-      )}
+      <Link href="/dashboard/generators/content-calendar" className="btn-primary">
+        Gerar novo calendário
+      </Link>
+
+      <div className="list-section">
+        {generations.length === 0 ? (
+          <p className="empty-state">Nenhum calendário gerado ainda.</p>
+        ) : (
+          generations.map((generation) => (
+            <article key={generation.id} className="card calendar-entry">
+              <h2>{new Date(generation.createdAt).toLocaleDateString("pt-BR")}</h2>
+              <pre>{generation.output}</pre>
+            </article>
+          ))
+        )}
+      </div>
     </main>
   );
 }

@@ -38,35 +38,49 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="auth-page">
-      <h1>Criar conta</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Nome
-          <input value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label>
-          E-mail
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        </label>
-        <label>
-          Senha
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={8}
-          />
-        </label>
-        <button type="submit" disabled={loading}>
-          {loading ? "Criando..." : "Criar conta"}
-        </button>
-      </form>
-      {error && <p role="alert">{error}</p>}
-      <p>
-        Já tem conta? <Link href="/login">Entrar</Link>
-      </p>
+    <main className="auth-shell">
+      <div className="auth-card">
+        <Link href="/" className="auth-brand">
+          Marketing Digital Pro
+        </Link>
+        <h1>Crie sua conta grátis</h1>
+        <p className="auth-subtitle">Sem cartão de crédito. Comece a gerar em 1 minuto.</p>
+
+        <form onSubmit={handleSubmit}>
+          <label>
+            Nome
+            <input value={name} onChange={(e) => setName(e.target.value)} />
+          </label>
+          <label>
+            E-mail
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            Senha
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={8}
+            />
+          </label>
+          <button type="submit" disabled={loading} className="btn-block">
+            {loading ? "Criando..." : "Criar conta"}
+          </button>
+        </form>
+
+        {error && <p role="alert">{error}</p>}
+
+        <p className="auth-footer-text">
+          Já tem conta? <Link href="/login">Entrar</Link>
+        </p>
+      </div>
     </main>
   );
 }

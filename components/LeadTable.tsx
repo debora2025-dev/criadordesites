@@ -10,11 +10,11 @@ export function LeadTable({
   onDelete: (id: string) => void;
 }) {
   if (leads.length === 0) {
-    return <p>Nenhum lead cadastrado ainda.</p>;
+    return <p className="empty-state">Nenhum lead cadastrado ainda.</p>;
   }
 
   return (
-    <table className="lead-table">
+    <table className="lead-table card">
       <thead>
         <tr>
           <th>Nome</th>

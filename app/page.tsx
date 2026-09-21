@@ -1,17 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { marketingTools } from "@/types/marketing";
-
-const categoryIcons: Record<string, string> = {
-  "Social Media": "📱",
-  "Tráfego Pago": "📢",
-  SEO: "🔍",
-  "E-mail": "✉️",
-  Estratégia: "🎯",
-  Conversão: "🚀",
-  Vendas: "💬",
-};
+import { marketingTools, categoryIcons } from "@/types/marketing";
 
 const stats = [
   { value: "10", label: "geradores de IA" },

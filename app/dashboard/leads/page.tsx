@@ -50,8 +50,12 @@ export default function LeadsPage() {
 
   return (
     <main>
-      <h1>Leads</h1>
+      <div className="page-header">
+        <h1>Leads</h1>
+        <p>Organize os contatos que chegaram até você.</p>
+      </div>
 
+      <div className="card">
       <form onSubmit={handleSubmit}>
         <label>
           Nome
@@ -100,10 +104,17 @@ export default function LeadsPage() {
         </label>
         <button type="submit">Adicionar lead</button>
       </form>
-
       {error && <p role="alert">{error}</p>}
+      </div>
 
-      {loading ? <p>Carregando...</p> : <LeadTable leads={leads} onDelete={handleDelete} />}
+      <div className="list-section">
+        <h2>Seus leads</h2>
+        {loading ? (
+          <p className="empty-state">Carregando...</p>
+        ) : (
+          <LeadTable leads={leads} onDelete={handleDelete} />
+        )}
+      </div>
     </main>
   );
 }
