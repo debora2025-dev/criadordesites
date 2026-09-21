@@ -101,18 +101,247 @@ pre {
   color: var(--danger);
 }
 
-/* Landing & auth pages */
-.landing,
+/* Auth pages */
 .auth-page {
   max-width: 480px;
   margin-inline: auto;
   padding: 3rem 1.5rem;
 }
 
-.landing-actions {
+/* Landing page */
+.landing-page h1,
+.landing-page h2 {
+  border-bottom: none;
+  margin-top: 0;
+}
+
+.landing-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 2rem;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.landing-nav-brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.landing-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  text-decoration: none;
+  opacity: 0.92;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+  text-decoration: none;
+  background: var(--bg-muted);
+}
+
+.btn-large {
+  padding: 0.85rem 1.75rem;
+  font-size: 1rem;
+}
+
+.landing-hero {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: 3.5rem 1.5rem 2rem;
+  text-align: center;
+}
+
+.landing-eyebrow {
+  display: inline-block;
+  background: var(--bg-muted);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+}
+
+.landing-hero h1 {
+  font-size: 2.25rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.landing-hero p {
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.landing-hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.landing-section {
+  max-width: 1000px;
+  margin-inline: auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.landing-section-muted {
+  background: var(--bg-muted);
+  max-width: none;
+}
+
+.landing-section h2 {
+  font-size: 1.65rem;
+}
+
+.landing-section-subtitle {
+  color: #555;
+  margin-top: -0.5rem;
+}
+
+.landing-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.landing-tool-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.landing-tool-category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.landing-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.landing-benefit-card strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+}
+
+.landing-benefit-card p {
+  color: #555;
+  margin: 0;
+}
+
+.landing-steps {
+  list-style: none;
+  padding: 0;
+  margin: 2rem auto 0;
+  max-width: 480px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.landing-steps li {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.landing-step-number {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-steps strong {
+  display: block;
+}
+
+.landing-steps p {
+  margin: 0.15rem 0 0;
+  color: #555;
+}
+
+.landing-cta {
+  max-width: 600px;
+  margin-inline: auto;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.landing-cta h2 {
+  font-size: 1.65rem;
+}
+
+.landing-cta p {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.landing-footer {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  max-width: 1100px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #555;
+}
+
+.landing-footer div {
+  display: flex;
+  gap: 1.25rem;
 }
 
 /* Dashboard shell */
